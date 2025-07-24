@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Code</title>
+    <style>
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 300px;
+        }
+        .carousel img {
+            width: 300px;
+            margin-right: 10px;
+        }
+        .search-bar {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p>This is a paragraph</p>
+    <h6>smallest</h6>
+    <p>is this a paragraph</p>
+    <img src="download.png" alt="Image 1"/>
+    <img src="download.png" alt="Image 2"/>
+    <img src="download.png" alt="Image 3"/>
+    <hr/>rob<hr/>
+    <h2>random animals</h2>
+    <ul>
+        <li>cat</li>
+        <li>dog</li>
+    </ul>
+    <h3>header</h3>
+    <b>header</b>
+    <i>header</i>
+    <u>header</u>
+    <ul>
+        <li>holden</li>
+        <li>ford</li>
+        <li>bmw</li>
+    </ul>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input id="searchInput" type="text" placeholder="Search..." />
+        <button onclick="performSearch()">Search</button>
+    </div>
+
+    <!-- Picture Carousel -->
+    <h2>Picture Carousel</h2>
+    <div class="carousel" id="carousel">
+        <img src="image1.jpg" alt="Picture 1">
+        <img src="image2.jpg" alt="Picture 2">
+        <img src="image3.jpg" alt="Picture 3">
+    </div>
+
+    <script>
+        // Search Bar Functionality
+        function performSearch() {
+            const input = document.getElementById('searchInput').value;
+            alert('You searched for: ' + input);
+        }
+
+        // Carousel Functionality
+        let carousel = document.getElementById('carousel');
+        let scrollAmount = 0;
+
+        function scrollCarousel() {
+            scrollAmount += 300; // Adjust based on image width
+            if (scrollAmount >= carousel.scrollWidth) {
+                scrollAmount = 0; // Reset scroll
+            }
+            carousel.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Automatically scroll carousel every 5 seconds
+        setInterval(scrollCarousel, 3000);
+    </script>
+</body>
+</html>
